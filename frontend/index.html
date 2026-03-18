@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Distribuidora Pro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  Minha Distribuidora
+</header>
+
+<div class="container">
+  <h2>Produtos</h2>
+  <div class="produtos" id="produtos"></div>
+</div>
+
+
+<div id="carrinhoBox" class="carrinho">
+
+  <button onclick="fecharCarrinho()">Fechar</button>
+
+  <div id="listaCarrinho"></div> <!-- ESSENCIAL -->
+
+  <h3>Total: R$ <span id="total">0.00</span></h3> <!-- ESSENCIAL -->
+
+  <button onclick="limparCarrinho()">Limpar</button>
+  <button onclick="finalizarPedido()">Finalizar</button>
+
+</div>
+
+
+<script src="script.js"></script>
+
+<div class="cart-float" onclick="abrirCarrinho()">
+  🛒
+  <span id="contador">0</span>
+</div>
+
+</body>
+</html>
