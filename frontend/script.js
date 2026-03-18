@@ -120,6 +120,14 @@ function fecharCarrinho(){
 
 function finalizarPedido(){
   alert('Pedido enviado!');
+  console.log(carrinho)
+  var mensagem = ""
+  carrinho.forEach(produto => {
+    mensagem += "Produto: " + produto.nome + ", Preço: " + produto.preco + ", Qtd: " + produto.qtd
+  })
+
+  
+  window.open("https://api.whatsapp.com/send/?phone=5561981737751&text=Pedido" + mensagem +"&type=phone_number&app_absent=0")
 }
 
 renderProdutos();
