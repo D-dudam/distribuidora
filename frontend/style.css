@@ -1,88 +1,95 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* FUNDO */
 body {
-  font-family: Arial;
-  margin:0;
-  background:#f5f5f5;
+  background: #0b0b0b;
+  color: #fff;
 }
 
+/* HEADER */
 header {
-      background:#0d6efd;
-      color:white;
-      padding:20px;
-      text-align:center;
-      font-size:22px;
-      font-weight:bold;
-    }
-
-    .container {
-      padding:10px;
-      margin-bottom:120px;
-    }
-
-    .produtos {
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap:10px;
-    }
-
-    .card {
-  background: white;
-  border-radius: 12px;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
+/* CONTAINER */
+.container {
+  padding: 15px;
+}
+
+/* GRID DE PRODUTOS */
+.produtos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* CARD PRODUTO */
+.card {
+ .card {
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+}
+
+.card:hover {
+  transform: scale(1.03);
+  border-color: #d4af37;
+}
+
+/* IMAGEM */
 .card img {
   width: 100%;
   height: 120px;
   object-fit: contain;
 }
 
+/* NOME */
 .card h3 {
   font-size: 14px;
+  margin: 5px 0;
 }
 
+/* PREÇO */
+.card p {
+  color: #d4af37;
+  font-weight: bold;
+}
+
+/* BOTÃO */
 .card button {
   width: 100%;
-  background: #0d6efd;
-  border: none;
   padding: 8px;
-  color: white;
+  border: none;
   border-radius: 6px;
+  background: #8B0000;
+  color: white;
+  cursor: pointer;
   margin-top: 5px;
+  font-weight: bold;
 }
 
-    .add-btn {
-      background:#0d6efd;
-      color:white;
-      width:100%;
-      padding:8px;
-      border:none;
-      border-radius:6px;
-    }
-
-  .carrinho {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 320px;
-  height: 100%;
-  background: white;
-  padding: 15px;
-  box-shadow: -2px 0 10px rgba(0,0,0,0.2);
-  transition: 0.3s;
-  z-index: 1000;
+.card button:hover {
+  background: #d4af37;
+  color: black;
 }
 
-.carrinho.ativo {
-  right: 0;
+.card button:active {
+  transform: scale(0.95);
 }
 
+/* BOTÃO FLUTUANTE */
 .cart-float {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #0d6efd;
+  background: #8B0000;
   color: white;
   width: 60px;
   height: 60px;
@@ -92,26 +99,59 @@ header {
   justify-content: center;
   font-size: 26px;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
 .cart-float span {
   position: absolute;
   top: -5px;
   right: -5px;
-  background: red;
+  background: #d4af37;
+  color: black;
   font-size: 12px;
   padding: 3px 6px;
   border-radius: 50%;
 }
 
+/* CARRINHO */
+.carrinho {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 320px;
+  height: 100%;
+  background: #111;
+  padding: 15px;
+  transition: 0.3s;
+  z-index: 1000;
+  border-left: 2px solid #d4af37;
+  backdrop-filter: blur(10px);
+  background: rgba(20, 20, 20, 0.9);
+}
+
+.carrinho.ativo {
+  right: 0;
+}
+
+/* INPUTS */
+.carrinho input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 5px;
+}
+
+/* ITEM */
 .item {
-  background: #f5f5f5;
+  background: #1a1a1a;
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 10px;
+  border: 1px solid #333;
 }
 
+/* CONTROLES */
 .qty {
   display: flex;
   gap: 5px;
@@ -122,6 +162,75 @@ header {
   flex: 1;
   padding: 5px;
   border: none;
-  background: #ddd;
   border-radius: 5px;
+  background: #333;
+  color: white;
+  cursor: pointer;
+}
+
+.qty button:hover {
+  background: #d4af37;
+  color: black;
+}
+
+/* TOTAL */
+.carrinho h3 {
+  margin-top: 10px;
+  color: #d4af37;
+}
+
+/* BOTÕES */
+.carrinho button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* LIMPAR */
+.carrinho button:nth-child(6) {
+  background: #444;
+  color: white;
+}
+
+/* FINALIZAR */
+.finalizar {
+  background: #8B0000;
+  color: white;
+}
+
+.finalizar:hover {
+  background: #d4af37;
+  color: black;
+}
+
+#toast {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background: #d4af37;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.banner {
+  background: linear-gradient(90deg, #8B0000, #d4af37);
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-weight: bold;
 }

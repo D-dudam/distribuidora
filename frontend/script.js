@@ -40,6 +40,7 @@ function addCarrinho(id) {
     carrinho.push({ ...produto, qtd:1 });
   }
 
+  mostrarToast();
   salvarCarrinho();
   atualizarCarrinho();
   abrirCarrinho();
@@ -112,23 +113,63 @@ function atualizarCarrinho() {
 
 function abrirCarrinho(){
   document.getElementById('carrinhoBox').classList.add('ativo');
+  const nomeInput = document.getElementById('nome');
+const enderecoInput = document.getElementById('endereco');
+
+if (!nomeInput || !enderecoInput) {
+  alert("Erro: campos não encontrados");
+  return;
+}
+
+const nome = nomeInput.value;
+const endereco = enderecoInput.value;
+
 }
 
 function fecharCarrinho(){
   document.getElementById('carrinhoBox').classList.remove('ativo');
 }
 
-function finalizarPedido(){
-  alert('Pedido enviado!');
-  console.log(carrinho)
-  var mensagem = ""
-  carrinho.forEach(produto => {
-    mensagem += "Produto: " + produto.nome + ", Preço: " + produto.preco + ", Qtd: " + produto.qtd
-  })
+function finalizarPedido() {
+  const nome = document.getElementById('nome').value;
+  const endereco = document.getElementById('endereco').value;
 
-  
-  window.open("https://api.whatsapp.com/send/?phone=5561981737751&text=Pedido" + mensagem +"&type=phone_number&app_absent=0")
+  if (!nome || !endereco) {
+    alert("Preencha nome e endereço");
+    return;
+  }
+
+  let mensagem = `🛒 *NOVO PEDIDO*\n\n`;
+  mensagem += `👤 Cliente: ${nome}\n`;
+  mensagem += `📍 Endereço: ${endereco}\n\n`;
+
+  let total = 0;
+
+  carrinho.forEach(item => {
+    const subtotal = item.preco * item.qtd;
+    total += subtotal;
+
+    mensagem += `• ${item.nome} (x${item.qtd}) - R$ ${subtotal.toFixed(2)}\n`;
+  });
+
+  mensagem += `\n💰 Total: R$ ${total.toFixed(2)}`;
+
+  // 🔥 ESSA LINHA RESOLVE O PROBLEMA DOS EMOJIS
+  const mensagemFormatada = encodeURIComponent(mensagem);
+
+  window.open(`https://wa.me/5561981737751?text=${mensagemFormatada}`);
 }
 
-renderProdutos();
-atualizarCarrinho();
+function mostrarToast() {
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2000);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderProdutos();
+  atualizarCarrinho();
+});
