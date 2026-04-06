@@ -1,8 +1,12 @@
 const produtos = [
-  { id:1, nome:"Coca-Cola 2L", preco:10, img:"../assets/coca-cola.png" },
+  { id:1, nome:"Coca-Cola 2L", preco:11.99, img:"../assets/coca-cola.png" },
   { id:2, nome:"Heineken Lata 350ml", preco:5, img:"../assets/heineken-lata.png" },
-  { id:3, nome:"Água 500ml", preco:2, img:"../assets/agua.png" },
-  { id:4, nome:"Red Bull", preco:13, img:"../assets/redbull.png" }
+  { id:3, nome:"Água Mineral 500ml", preco:2, img:"../assets/agua.png" },
+  { id:4, nome:"Caixa Amstel - 350ml", preco:45, img:"../assets/amstel.png" },
+  { id:5, nome:"Michelob Long Neck - 330ml", preco:9, img:"../assets/michelob.png" },
+  { id:6, nome:"Heineken Long Neck - 330ml", preco:10, img:"../assets/heineken.png" },
+  { id:7, nome:"Corona Long Neck - 330ml", preco:9.50, img:"../assets/corona.png" },
+  { id:8, nome:"Red Bull", preco:13, img:"../assets/redbull.png" }
 ];
 
 let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
@@ -173,3 +177,14 @@ document.addEventListener("DOMContentLoaded", () => {
   renderProdutos();
   atualizarCarrinho();
 });
+
+function toggleThemeMode(isDarkMode){
+  if(isDarkMode){
+    //Pegar divs e adicionar classe dark
+
+  }else {
+    //Retira classe dark
+
+  }
+
+}

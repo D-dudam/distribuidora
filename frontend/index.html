@@ -1,61 +1,82 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Distribuidora Pro</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Distribuidora Pro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div class="contato">
+          <span>(61) 98173-7751</span>
+          <span>- Entrega em todo Valparaíso</span>
+        </div>
+        <span class="pedido-min">Pedido mínimo R$ 15,00</span>
+      </div>
 
-<header>
-  Minha Distribuidora
-</header>
+      <nav>
+        <div class="logo">
+          <div class="card-logo"><h2>SK7</h2></div>
+          <div class="descricao-logo">
+            <h3>Skinna7</h3>
+            <span>Distribuidora e Tabacaria</span>
+          </div>
+        </div>
 
-<div class="banner">
-  🔥 Promoção do dia: Frete grátis acima de R$50
-</div>
+        <div class="search">
+          <div class="input-group">
+            <input
+              required=""
+              type="text"
+              name="text"
+              autocomplete="off"
+              class="input"
+            />
+            <label class="user-label">Pesquisar...</label>
+          </div>
+        </div>
+        <div class="cart-float" onclick="abrirCarrinho()">
+          🛒
+          <span id="contador">0</span>
+        </div>
+      </nav>
+    </header>
 
-<div class="container">
-  <h2>Produtos</h2>
-  <div class="produtos" id="produtos"></div>
-</div>
+    <div class="banner">🔥 Promoção do dia: Frete grátis acima de R$150</div>
 
+    <div class="container">
+      <h2>Produtos</h2>
+      <div class="produtos" id="produtos"></div>
+    </div>
 
-<div id="carrinhoBox" class="carrinho">
+    <div id="carrinhoBox" class="carrinho">
+      <button onclick="fecharCarrinho()">Fechar</button>
 
-  <button onclick="fecharCarrinho()">Fechar</button>
+      <h2>Seu Pedido</h2>
 
-  <h2>Seu Pedido</h2>
+      <!-- CAMPOS OBRIGATÓRIOS -->
+      <input type="text" id="nome" placeholder="Seu nome" />
+      <input type="text" id="endereco" placeholder="Endereço" />
 
-  <!-- CAMPOS OBRIGATÓRIOS -->
-  <input type="text" id="nome" placeholder="Seu nome">
-  <input type="text" id="endereco" placeholder="Endereço">
+      <!-- LISTA -->
+      <div id="listaCarrinho"></div>
 
-  <!-- LISTA -->
-  <div id="listaCarrinho"></div>
+      <!-- TOTAL -->
+      <h3>Total: R$ <span id="total">0.00</span></h3>
 
-  <!-- TOTAL -->
-  <h3>Total: R$ <span id="total">0.00</span></h3>
+      <!-- BOTÕES -->
+      <button onclick="limparCarrinho()">🗑️ Limpar Carrinho</button>
 
-  <!-- BOTÕES -->
-  <button onclick="limparCarrinho()">🗑️ Limpar Carrinho</button>
+      <button class="finalizar" onclick="finalizarPedido()">
+        🚀 Finalizar Pedido
+      </button>
+    </div>
 
-  <button class="finalizar" onclick="finalizarPedido()">
-    🚀 Finalizar Pedido
-  </button>
+    <div id="toast">Produto adicionado 🛒</div>
 
-</div>
-
-<div id="toast">Produto adicionado 🛒</div>
-
-<script src="script.js"></script>
-
-<div class="cart-float" onclick="abrirCarrinho()">
-  🛒
-  <span id="contador">0</span>
-</div>
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
